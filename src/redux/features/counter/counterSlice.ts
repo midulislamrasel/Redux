@@ -1,18 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export interface CounterState
+const initialState = {
+  valeu: 5,
+};
 
+export const counterSlice = createSlice({
+  name: "conuter",
+  initialState,
+  reducers: {
+    increment: (state) => {
+      state.valeu += 1;
+    },
+    decrement: (state) => {
+      state.valeu -= 1;
+    },
+    increment5: (state) => {
+      state.valeu += 5;
+    },
+  },
+});
 
-const initialState : counterSlice 
+export const { increment, decrement, increment5 } = counterSlice.actions;
 
-
-
-export const counterSlice =  createSlice({
-    name:'conuter',
-    initialState,
-    reducers : {
-        increment : (state)=>{
-            state.value += 1
-        }
-    }
-})
+export default counterSlice.reducer;
